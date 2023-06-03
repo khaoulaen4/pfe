@@ -1,51 +1,55 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.MessageEntity;
+import com.example.demo.entity.Message;
 import com.example.demo.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class MessageService {
+
     @Autowired
-    private MessageRepository repository;
+    private MessageRepository messageRepository;
 
-    public MessageEntity saveMessage(MessageEntity sms) {
+    public Message saveMessage(Message sms) {
 
-        return repository.save(sms);
+        return messageRepository.save(sms);
     }
 
-    public List<MessageEntity> saveMessages(List<MessageEntity> smss) {
+    public List<Message> saveMessages(List<Message> smss) {
 
-        return repository.saveAll(smss);
+        return messageRepository.saveAll(smss);
     }
 
-    public List<MessageEntity> getMessages() {
-        return repository.findAll();
+    public List<Message> getMessages() {
+
+        return messageRepository.findAll();
     }
 
-    public MessageEntity getMessageById(int id) {
+    public Message getMessageById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return messageRepository.findById(id).orElse(null);
     }
 
-    public MessageEntity getMessageByName(String name) {
-
-        return repository.findByName(name);
-    }
 
     public String deleteMessage(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        messageRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public MessageEntity updateMessage(MessageEntity sms) {
-        MessageEntity existingMessage= repository.findById(sms.getIdMsg()).orElse(null);
+    public Message updateMessage(Message sms) {
+        Message existingMessage= messageRepository.findById(sms.getIdMsg()).orElse(null);
         existingMessage.setContenue(sms.getContenue());
         existingMessage.setDateEnvoi(sms.getDateEnvoi());
-
-        return repository.save(existingMessage);
+        existingMessage.setAdministrateurs(sms.getAdministrateurs());
+        existingMessage.setEnseignants(sms.getEnseignants());
+        existingMessage.setEtudiantes(sms.getEtudiantes());
+        return messageRepository.save(existingMessage);
     }
+
+    public List<Message> getAllMessages() {
+        return messageRepository.findAll();
+    }
+
 }

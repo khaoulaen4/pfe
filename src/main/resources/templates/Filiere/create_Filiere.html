@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Filiere</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Filiere/header.html"></div>
+
+<br>
+<br>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Create New Filiere </h1>
+      <div class = "card-body">
+        <form th:action="@{/Filiere/Save}" th:object = "${filiere}" method="POST">
+
+          <div class ="form-group">
+            <label> Filiere Name </label>
+            <input
+                    type = "text"
+                    name = "NomFiliere"
+                    th:field = "*{nomFil}"
+                    class = "form-control"
+                    placeholder="Enter Filiere Name"
+            />
+          </div>
+          <div class ="form-group">
+            <label> Filiere Code </label>
+            <input
+                    type = "text"
+                    name = "NomCode"
+                    th:field = "*{codeFil}"
+                    class = "form-control"
+                    placeholder="Enter Filiere Code"
+            />
+          </div>
+
+          <select class="custom-select" th:field="*{departement}">
+            <option value="">Selectionnez un departement</option>
+            <option th:each="departement : ${departements}" th:value="${departement.idDep}" th:text="${departement.nomDep}"></option>
+          </select>
+
+          <div class = "box-footer">
+            <button type="submit" class = "btn btn-secondary">
+              Submit
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

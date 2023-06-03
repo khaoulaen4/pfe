@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.DepartementEntity;
+import com.example.demo.entity.Departement;
 import com.example.demo.repository.DepartementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,42 +11,42 @@ import java.util.List;
 public class DepartementService {
 
     @Autowired
-    private DepartementRepository repository;
+    private DepartementRepository departementRepository;
 
-    public DepartementEntity saveDepartement(DepartementEntity d) {
+    public Departement saveDepartement(Departement d) {
 
-        return repository.save(d);
+        return departementRepository.save(d);
     }
 
-    public List<DepartementEntity> saveDepartements(List<DepartementEntity> ds) {
+    public List<Departement> saveDepartements(List<Departement> ds) {
 
-        return repository.saveAll(ds);
+        return departementRepository.saveAll(ds);
     }
 
-    public List<DepartementEntity> getDepartements() {
+    public List<Departement> getDepartements() {
 
-        return repository.findAll();
+        return departementRepository.findAll();
     }
 
-    public DepartementEntity getDepartementById(int id) {
+    public Departement getDepartementById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return departementRepository.findById(id).orElse(null);
     }
 
-    public DepartementEntity getDepartementByName(String name) {
 
-        return repository.findByName(name);
-    }
 
     public String deleteDepartement(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        departementRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public DepartementEntity updateDepartement(DepartementEntity d) {
-        DepartementEntity existingDepartement= repository.findById(d.getIdDep()).orElse(null);
+    public Departement updateDepartement(Departement d) {
+        Departement existingDepartement= departementRepository.findById(d.getIdDep()).orElse(null);
         existingDepartement.setNomDep(d.getNomDep());
-        return repository.save(existingDepartement);
+        return departementRepository.save(existingDepartement);
     }
 
+    public List<Departement> getAllDepartements() {
+        return departementRepository.findAll();
+    }
 }

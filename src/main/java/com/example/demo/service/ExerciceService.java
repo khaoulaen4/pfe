@@ -1,54 +1,52 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.ExerciceEntity;
+import com.example.demo.entity.Exercice;
 import com.example.demo.repository.ExerciceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
-
 public class ExerciceService {
     @Autowired
-    private ExerciceRepository repository;
+    private ExerciceRepository exerciceRepository;
 
-    public ExerciceEntity saveExercice(ExerciceEntity ex) {
+    public Exercice saveExercice(Exercice ex) {
 
-        return repository.save(ex);
+        return exerciceRepository.save(ex);
     }
 
-    public List<ExerciceEntity> saveExercices(List<ExerciceEntity> exs) {
+    public List<Exercice> saveExercicees(List<Exercice> exs) {
 
-        return repository.saveAll(exs);
+        return exerciceRepository.saveAll(exs);
     }
 
-    public List<ExerciceEntity> getExercices() {
+    public List<Exercice> getExercices() {
 
-        return repository.findAll();
+        return exerciceRepository.findAll();
     }
 
-    public ExerciceEntity getExerciceById(int id) {
+    public Exercice getExerciceById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return exerciceRepository.findById(id).orElse(null);
     }
 
-    public ExerciceEntity getExerciceByName(String name) {
-
-        return repository.findByName(name);
-    }
 
     public String deleteExercice(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        exerciceRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public ExerciceEntity updateExercice(ExerciceEntity ex) {
-        ExerciceEntity existingExercice= repository.findById(ex.getIdEx()).orElse(null);
+    public Exercice updateExercice(Exercice ex) {
+        Exercice existingExercice= exerciceRepository.findById(ex.getIdEx()).orElse(null);
         existingExercice.setNomEx(ex.getNomEx());
-        existingExercice.setDateAjoute(ex.getDateAjoute());
         existingExercice.setModule(ex.getModule());
-        return repository.save(existingExercice);
+        existingExercice.setDateAjoute(ex.getDateAjoute());
+        return exerciceRepository.save(existingExercice);
+    }
+
+    public List<Exercice> getAllExercices() {
+        return exerciceRepository.findAll();
     }
 
 }

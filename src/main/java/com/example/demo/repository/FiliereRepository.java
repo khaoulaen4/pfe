@@ -1,8 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.FiliereEntity;
+import com.example.demo.entity.Filiere;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FiliereRepository extends JpaRepository<FiliereEntity,Integer> {
-    FiliereEntity findByName(String name);
+public interface FiliereRepository extends JpaRepository<Filiere,Integer> {
+    //Filiere findByName(String name);
 }

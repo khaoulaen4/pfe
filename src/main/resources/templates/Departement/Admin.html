@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title> Departement </title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Departement/header.html"></div>
+<div class="row">
+
+<div class="col-md-3">
+    <div th:include="Departement/menu.html"></div>
+</div>
+    <div class="col-md-9">
+
+
+    <div class ="container">
+    <div class = "row">
+        <h1> List Departement </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/Departement/New}" class = "btn btn-secondary btn-sm mb-3"> Add Departement</a>
+        </div>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Id</th>
+            <th> Name</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "departement: ${departements}">
+            <td th:text = "${departement.idDep}"></td>
+            <td th:text = "${departement.nomDep}"></td>
+            <td>
+                <a th:href = "@{/Departement/edit/{id}(id=${departement.idDep})}"
+                   class = "btn btn-success">Update</a>
+
+                <a th:href = "@{/Departement/Delet/{id}(id=${departement.idDep})}"
+                   class = "btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+    </div>
+</div>
+</body>
+</html>

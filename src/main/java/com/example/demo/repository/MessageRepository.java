@@ -1,8 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.MessageEntity;
+import com.example.demo.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MessageRepository extends JpaRepository<MessageEntity,Integer> {
-    MessageEntity findByName(String name);
+public interface MessageRepository extends JpaRepository<Message,Integer> {
+    //Message findByName(String name);
 }

@@ -1,49 +1,44 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.EnseignantEntity;
+import com.example.demo.entity.Enseignant;
 import com.example.demo.repository.EnseignantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class EnseignantService {
     @Autowired
-    private EnseignantRepository repository;
+    private EnseignantRepository enseignantRepository;
 
-    public EnseignantEntity saveEnseignant(EnseignantEntity en) {
+    public Enseignant saveEnseignant(Enseignant en) {
 
-        return repository.save(en);
+        return enseignantRepository.save(en);
     }
 
-    public List<EnseignantEntity> saveEnseignants(List<EnseignantEntity> ens) {
+    public List<Enseignant> saveEnseignants(List<Enseignant> ens) {
 
-        return repository.saveAll(ens);
+        return enseignantRepository.saveAll(ens);
     }
 
-    public List<EnseignantEntity> getEnseignants() {
+    public List<Enseignant> getEnseignants() {
 
-        return repository.findAll();
+        return enseignantRepository.findAll();
     }
 
-    public EnseignantEntity getEnseignantById(int id) {
+    public Enseignant getEnseignantById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return enseignantRepository.findById(id).orElse(null);
     }
 
-    public EnseignantEntity getEnseignantByName(String name) {
-
-        return repository.findByName(name);
-    }
 
     public String deleteEnseignant(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        enseignantRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public EnseignantEntity updateEnseignant(EnseignantEntity en) {
-        EnseignantEntity existingEnseignant= repository.findById(en.getIdEng()).orElse(null);
+    public Enseignant updateEnseignant(Enseignant en) {
+        Enseignant existingEnseignant= enseignantRepository.findById(en.getIdEng()).orElse(null);
         existingEnseignant.setNomEng(en.getNomEng());
         existingEnseignant.setPrenomEng(en.getPrenomEng());
         existingEnseignant.setEmail(en.getEmail());
@@ -53,7 +48,10 @@ public class EnseignantService {
         existingEnseignant.setDateInscpEng(en.getDateInscpEng());
         existingEnseignant.setNumTele(en.getNumTele());
         existingEnseignant.setModule(en.getModule());
-        existingEnseignant.setMessage(en.getMessage());
-        return repository.save(existingEnseignant);
+        return enseignantRepository.save(existingEnseignant);
+    }
+
+    public List<Enseignant> getAllEnseignants() {
+        return enseignantRepository.findAll();
     }
 }

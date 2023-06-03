@@ -1,53 +1,54 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.ChapitreEntity;
+import com.example.demo.entity.Chapitre;
 import com.example.demo.repository.ChapitreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
+
 public class ChapitreService {
-
-
     @Autowired
-    private ChapitreRepository repository;
+    private ChapitreRepository chapitreRepository;
 
-    public ChapitreEntity saveChapitre(ChapitreEntity c) {
+    public Chapitre saveChapitre(Chapitre c) {
 
-        return repository.save(c);
+        return chapitreRepository.save(c);
     }
 
-    public List<ChapitreEntity> saveChapitres(List<ChapitreEntity> cs) {
+    public List<Chapitre> saveChapitres(List<Chapitre> cs) {
 
-        return repository.saveAll(cs);
+        return chapitreRepository.saveAll(cs);
     }
 
-    public List<ChapitreEntity> getChapitres() {
+    public List<Chapitre> getChapitres() {
 
-        return repository.findAll();
+        return chapitreRepository.findAll();
     }
 
-    public ChapitreEntity getChapitreById(int id) {
+    public Chapitre getChapitreById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return chapitreRepository.findById(id).orElse(null);
     }
 
-    public ChapitreEntity getChapitreByName(String name) {
-
-        return repository.findByName(name);
-    }
 
     public String deleteChapitre(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        chapitreRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public ChapitreEntity updateChapitre(ChapitreEntity c) {
-        ChapitreEntity existingChapitre= repository.findById(c.getIdChpt()).orElse(null);
+    public Chapitre updateChapitre(Chapitre c) {
+        Chapitre existingChapitre= chapitreRepository.findById(c.getIdChpt()).orElse(null);
         existingChapitre.setTitre(c.getTitre());
         existingChapitre.setModule(c.getModule());
         existingChapitre.setDateAjoute(c.getDateAjoute());
-        return repository.save(existingChapitre);
+        return chapitreRepository.save(existingChapitre);
     }
+
+    public List<Chapitre> getAllChapitres() {
+        return chapitreRepository.findAll();
+    }
+
 }

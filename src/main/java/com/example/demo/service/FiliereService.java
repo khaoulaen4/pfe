@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.FiliereEntity;
+import com.example.demo.entity.Filiere;
 import com.example.demo.repository.FiliereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,46 +9,44 @@ import java.util.List;
 
 @Service
 public class FiliereService {
-
     @Autowired
-    private FiliereRepository repository;
+    private FiliereRepository filiereRepository;
 
-    public FiliereEntity saveFiliere(FiliereEntity f) {
+    public Filiere saveFiliere(Filiere f) {
 
-        return repository.save(f);
+        return filiereRepository.save(f);
     }
 
-    public List<FiliereEntity> saveFilieres(List<FiliereEntity> fs) {
+    public List<Filiere> saveFilieres(List<Filiere> fs) {
 
-        return repository.saveAll(fs);
+        return filiereRepository.saveAll(fs);
     }
 
-    public List<FiliereEntity> getFilieres() {
-        return repository.findAll();
+    public List<Filiere> getFilieres() {
+
+        return filiereRepository.findAll();
     }
 
-    public FiliereEntity getFiliereById(int id) {
+    public Filiere getFiliereById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return filiereRepository.findById(id).orElse(null);
     }
 
-    public FiliereEntity getFiliereByName(String name) {
 
-        return repository.findByName(name);
-    }
 
     public String deleteFiliere(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        filiereRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public FiliereEntity updateFiliere(FiliereEntity f) {
-        FiliereEntity existingFiliere= repository.findById(f.getIdFil()).orElse(null);
-        existingFiliere.setNomFil(f.getNomFil());
-        existingFiliere.setCodeFil(f.getCodeFil());
-        existingFiliere.setDepartement(f.getDepartement());
-        existingFiliere.setModule(f.getModule());
-        return repository.save(existingFiliere);
+    public Filiere updateFiliere(Filiere f) {
+            //Filiere existingFiliere= filiereRepository.findById(f.getIdFil()).orElse(null);
+            //existingFiliere.setNomFil(f.getNomFil());
+            //existingFiliere.setCodeFil(f.getCodeFil());
+        return filiereRepository.save(f);
     }
 
+    public List<Filiere> getAllFilieres() {
+        return filiereRepository.findAll();
+    }
 }

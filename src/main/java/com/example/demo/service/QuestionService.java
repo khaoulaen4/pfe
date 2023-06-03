@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.QuestionEntity;
+import com.example.demo.entity.Question;
 import com.example.demo.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,43 +10,47 @@ import java.util.List;
 @Service
 public class QuestionService {
     @Autowired
-    private QuestionRepository repository;
+        private QuestionRepository questionRepository;
 
-    public QuestionEntity saveQuestion(QuestionEntity qt) {
+        public Question saveQuestion(Question Qst) {
 
-        return repository.save(qt);
-    }
+            return questionRepository.save(Qst);
+        }
 
-    public List<QuestionEntity> saveQuestions(List<QuestionEntity> qts) {
+        public List<Question> saveQuestions(List<Question> Qsts) {
 
-        return repository.saveAll(qts);
-    }
+            return questionRepository.saveAll(Qsts);
+        }
 
-    public List<QuestionEntity> getQuestions() {
-        return repository.findAll();
-    }
+        public List<Question> getQuestions() {
 
-    public QuestionEntity getQuestionById(int id) {
+            return questionRepository.findAll();
+        }
 
-        return repository.findById(id).orElse(null);
-    }
+        public Question getQuestionById(int id) {
 
-    public QuestionEntity getQuestionByName(String name) {
+            return questionRepository.findById(id).orElse(null);
+        }
 
-        return repository.findByName(name);
-    }
 
-    public String deleteQuestion(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
-    }
+        public String deleteQuestion(int id) {
+            questionRepository.deleteById(id);
+            return " removed !! " + id;
+        }
 
-    public QuestionEntity updateQuestion(QuestionEntity qt) {
-        QuestionEntity existingQuestion= repository.findById(qt.getIdQst()).orElse(null);
-        existingQuestion.setQuestion(qt.getQuestion());
-        existingQuestion.setReponse(qt.getReponse());
-        existingQuestion.setNote(qt.getNote());
-        existingQuestion.setQuiz(qt.getQuiz());
-        return repository.save(existingQuestion);
-    }
+        public Question updateQuestion(Question Qst) {
+            Question existingQuestion= questionRepository.findById(Qst.getIdQst()).orElse(null);
+            existingQuestion.setQuiz(Qst.getQuiz());
+            existingQuestion.setQuestion(Qst.getQuestion());
+            existingQuestion.setReponse(Qst.getReponse());
+            existingQuestion.setNote(Qst.getNote());
+
+            return questionRepository.save(existingQuestion);
+        }
+
+        public List<Question> getAllQuestions() {
+            return questionRepository.findAll();
+        }
 }
+
+

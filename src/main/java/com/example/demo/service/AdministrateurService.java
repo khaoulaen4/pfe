@@ -1,51 +1,44 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Administrateur;
+import com.example.demo.repository.AdministrateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.entity.AdministrateurEntity ;
-import com.example.demo.repository.AdministrateurRepository;
-
-
 
 import java.util.List;
 @Service
 public class AdministrateurService {
-
     @Autowired
-    private AdministrateurRepository repository;
+    private AdministrateurRepository administrateurRepository;
 
-    public AdministrateurEntity saveAdministrateur(AdministrateurEntity a) {
+    public Administrateur saveAdministrateur(Administrateur a) {
 
-        return repository.save(a);
+        return administrateurRepository.save(a);
     }
 
-    public List<AdministrateurEntity> saveAdministrateurs(List<AdministrateurEntity> as) {
+    public List<Administrateur> saveAdministrateurs(List<Administrateur> as) {
 
-        return repository.saveAll(as);
+        return administrateurRepository.saveAll(as);
     }
 
-    public List<AdministrateurEntity> getAdministrateurs() {
+    public List<Administrateur> getAdministrateurs() {
 
-        return repository.findAll();
+        return administrateurRepository.findAll();
     }
 
-    public AdministrateurEntity getAdministrateurById(int id) {
+    public Administrateur getAdministrateurById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return administrateurRepository.findById(id).orElse(null);
     }
 
-    public AdministrateurEntity getAdministrateurByName(String name) {
-
-        return repository.findByName(name);
-    }
 
     public String deleteAdministrateur(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
+        administrateurRepository.deleteById(id);
+        return " removed !! " + id;
     }
 
-    public AdministrateurEntity updateAdministrateur(AdministrateurEntity a) {
-        AdministrateurEntity existingAdministrateur= repository.findById(a.getIdAd()).orElse(null);
+    public Administrateur updateAdministrateur(Administrateur a) {
+        Administrateur existingAdministrateur= administrateurRepository.findById(a.getIdAd()).orElse(null);
         existingAdministrateur.setNomAdm(a.getNomAdm());
         existingAdministrateur.setPrenomAdm(a.getPrenomAdm());
         existingAdministrateur.setEmail(a.getEmail());
@@ -54,9 +47,11 @@ public class AdministrateurService {
         existingAdministrateur.setDateNaissenceAdm(a.getDateNaissenceAdm());
         existingAdministrateur.setDateInscpAdm(a.getDateInscpAdm());
         existingAdministrateur.setNumTele(a.getNumTele());
-        existingAdministrateur.setMessage(a.getMessage());
-        return repository.save(existingAdministrateur);
+        return administrateurRepository.save(existingAdministrateur);
     }
 
+    public List<Administrateur> getAllAdministrateurs() {
+        return administrateurRepository.findAll();
+    }
 }
 

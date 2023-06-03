@@ -1,8 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.QuestionEntity;
+import com.example.demo.entity.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface QuestionRepository extends JpaRepository<QuestionEntity,Integer> {
-    QuestionEntity findByName(String name);
+public interface QuestionRepository extends JpaRepository<Question,Integer> {
+    //Question findByName(String name);
 }
