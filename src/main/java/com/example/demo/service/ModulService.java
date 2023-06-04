@@ -40,7 +40,7 @@ public class ModulService {
     }
 
     public Modul updateModule(Modul md) {
-        Modul existingModule= moduleRepository.findById(md.getIdModul()).orElse(null);
+/*        Modul existingModule= moduleRepository.findById(md.getIdModul()).orElse(null);
         existingModule.setNomModul(md.getNomModul());
         existingModule.setFilier(md.getFilier());
 //        existingModule.setFilieres(md.getFilieres());
@@ -49,9 +49,9 @@ public class ModulService {
         existingModule.setEtudiantes(md.getEtudiantes());
         existingModule.setExercices(md.getExercices());
         existingModule.setChapitres(md.getChapitres());
-        existingModule.setQuizs(md.getQuizs());
+        existingModule.setQuizs(md.getQuizs());*/
 
-        return moduleRepository.save(existingModule);
+        return moduleRepository.save(md);
     }
 
     public List<Modul> getAllModules() {

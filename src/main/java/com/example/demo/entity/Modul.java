@@ -65,7 +65,7 @@ public class Modul implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "filiere", nullable = false)
+	@JoinColumn(name = "filier", nullable = false)
 	public Filiere getFilier() {
 		return this.filier;
 	}
@@ -73,7 +73,7 @@ public class Modul implements java.io.Serializable {
 		this.filier = filier;
 	}
 
-	@Column(name = "enseignante", nullable = false, length = 45)
+	@Column(name = "enseignante", nullable = true, length = 45)
 	public String getEnseignante() {
 		return this.enseignante;
 	}
@@ -127,5 +127,18 @@ public class Modul implements java.io.Serializable {
 		this.quizs = quizs;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Modul{" +
+				"idModul=" + idModul +
+				", nomModul='" + nomModul + '\'' +
+				", filier=" + filier +
+				", enseignante='" + enseignante + '\'' +
+				", exercices=" + exercices +
+				", chapitres=" + chapitres +
+				", etudiantes=" + etudiantes +
+				", enseignants=" + enseignants +
+				", quizs=" + quizs +
+				'}';
+	}
 }

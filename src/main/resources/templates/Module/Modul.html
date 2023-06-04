@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Module</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Module/header.html"></div>
+<div class="row">
+
+    <div class="col-md-3">
+        <div th:include="Module/menu.html"></div>
+    </div>
+    <div class="col-md-9">
+
+
+        <div class ="container">
+            <div class = "row">
+                <h1> List Module </h1>
+            </div>
+
+            <div class = "row">
+                <div class = "col-lg-3">
+                    <a th:href = "@{/Modul/New}" class = "btn btn-secondary btn-sm mb-3"> Add Module</a>
+                </div>
+            </div>
+            <table class = "table table-striped table-bordered">
+                <thead class = "table-dark">
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                   <th> Filiere </th>
+                    <!-- <th> Departement </th>-->
+                    <th> Actions </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each = "modul: ${moduls}">
+                    <td th:text = "${modul.idModul}"></td>
+                    <td th:text = "${modul.nomModul}"></td>
+                    <td th:text = "${modul.filier.nomNomFil}"></td>
+
+
+                    <!--  <td th:text = "${modul.codeFil}"></td>-->
+
+
+
+                    <td>
+                        <a th:href = "@{/Modul/edit/{id}(id=${modul.idModul})}"
+                           class = "btn btn-success">Update</a>
+
+                        <a th:href = "@{/Modul/Delet/{id}(id=${modul.idModul})}"
+                           class = "btn btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
