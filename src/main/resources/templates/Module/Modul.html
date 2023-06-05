@@ -33,8 +33,7 @@
                 <tr>
                     <th> Id </th>
                     <th> Name </th>
-                   <th> Filiere </th>
-                    <!-- <th> Departement </th>-->
+                    <th> Filiere </th>
                     <th> Actions </th>
                 </tr>
                 </thead>
@@ -44,12 +43,6 @@
                     <td th:text = "${modul.idModul}"></td>
                     <td th:text = "${modul.nomModul}"></td>
                     <td th:text = "${modul.filier.nomNomFil}"></td>
-
-
-                    <!--  <td th:text = "${modul.codeFil}"></td>-->
-
-
-
                     <td>
                         <a th:href = "@{/Modul/edit/{id}(id=${modul.idModul})}"
                            class = "btn btn-success">Update</a>

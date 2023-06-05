@@ -40,9 +40,6 @@ public class FiliereService {
     }
 
     public Filiere updateFiliere(Filiere f) {
-            //Filiere existingFiliere= filiereRepository.findById(f.getIdFil()).orElse(null);
-            //existingFiliere.setNomFil(f.getNomFil());
-            //existingFiliere.setCodeFil(f.getCodeFil());
         return filiereRepository.save(f);
     }
 

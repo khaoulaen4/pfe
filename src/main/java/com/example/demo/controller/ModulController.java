@@ -26,7 +26,7 @@ public class ModulController {
 
         }
 
-        // handler method to handle list Filieres and return mode and view
+        // handler method to handle list Modules and return mode and view
         @GetMapping("/Moduls")
         public String listModuls(Model model) {
             System.out.println("hit");
@@ -69,17 +69,13 @@ public class ModulController {
                                     Model model) {
             //System.out.println("hello");
             //get Filiere from database by id
-//        Filiere existingFiliere = filierService.getFiliereById(id);
-//        existingFiliere.setIdFil(id);
-//        existingFiliere.setCodeFil(filiere.getCodeFil());
-//        existingFiliere.setNomFil(filiere.getNomFil());
             modul.setIdModul(id);
-            // save updated filier object
+            // save updated Modul object
             modulService.updateModule(modul);
             return "redirect:/Moduls";
         }
 
-        // handler method to handle delete Filiere request
+        // handler method to handle delete Modul request
 
         @GetMapping("/Modul/Delet/{id}")
         public String deleteModul(@PathVariable int id) {
