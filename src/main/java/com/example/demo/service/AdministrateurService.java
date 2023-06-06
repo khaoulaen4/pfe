@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class AdministrateurService {
     @Autowired
-    private AdministrateurRepository administrateurRepository;
+    private  AdministrateurRepository administrateurRepository;
 
-    public Administrateur saveAdministrateur(Administrateur a) {
+    public  Administrateur saveAdministrateur(Administrateur a) {
 
         return administrateurRepository.save(a);
     }
