@@ -41,9 +41,8 @@ public class DepartementService {
     }
 
     public Departement updateDepartement(Departement d) {
-        Departement existingDepartement= departementRepository.findById(d.getIdDep()).orElse(null);
-        existingDepartement.setNomDep(d.getNomDep());
-        return departementRepository.save(existingDepartement);
+
+        return departementRepository.save(d);
     }
 
     public List<Departement> getAllDepartements() {

@@ -29,11 +29,10 @@ public class ModulController {
         // handler method to handle list Modules and return mode and view
         @GetMapping("/Moduls")
         public String listModuls(Model model) {
-            System.out.println("hit");
-
+            //System.out.println("hit");
             model.addAttribute("Moduls", modulService.getAllModules());
-            System.out.println("hi");
-            return "Module/Modul.html";
+            //System.out.println("hi");
+            return "Module/Modul";
         }
 
         @GetMapping("/Modul/New")
@@ -50,7 +49,7 @@ public class ModulController {
 
         @PostMapping("/Modul/Save")
         public String saveModul(@ModelAttribute("Modul") Modul modul) {
-            System.out.println(modul);
+            //System.out.println(modul);
             modulService.saveModule(modul);
             return "redirect:/Moduls";
         }

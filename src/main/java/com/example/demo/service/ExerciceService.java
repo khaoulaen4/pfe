@@ -38,11 +38,7 @@ public class ExerciceService {
     }
 
     public Exercice updateExercice(Exercice ex) {
-        Exercice existingExercice= exerciceRepository.findById(ex.getIdEx()).orElse(null);
-        existingExercice.setNomEx(ex.getNomEx());
-        existingExercice.setModule(ex.getModule());
-        existingExercice.setDateAjoute(ex.getDateAjoute());
-        return exerciceRepository.save(existingExercice);
+        return exerciceRepository.save(ex);
     }
 
     public List<Exercice> getAllExercices() {

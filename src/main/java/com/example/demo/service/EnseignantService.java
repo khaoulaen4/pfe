@@ -38,17 +38,8 @@ public class EnseignantService {
     }
 
     public Enseignant updateEnseignant(Enseignant en) {
-        Enseignant existingEnseignant= enseignantRepository.findById(en.getIdEng()).orElse(null);
-        existingEnseignant.setNomEng(en.getNomEng());
-        existingEnseignant.setPrenomEng(en.getPrenomEng());
-        existingEnseignant.setEmail(en.getEmail());
-        existingEnseignant.setUserName(en.getUserName());
-        existingEnseignant.setPassword(en.getPassword());
-        existingEnseignant.setDateNaissanceEng(en.getDateNaissanceEng());
-        existingEnseignant.setDateInscpEng(en.getDateInscpEng());
-        existingEnseignant.setNumTele(en.getNumTele());
-        existingEnseignant.setModule(en.getModule());
-        return enseignantRepository.save(existingEnseignant);
+
+        return enseignantRepository.save(en);
     }
 
     public List<Enseignant> getAllEnseignants() {

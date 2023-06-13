@@ -15,7 +15,6 @@ public class EtudiantService {
 
 
     public Etudiante saveEtudiante(Etudiante e) {
-
         return etudiantRepository.save(e);
     }
 
@@ -41,17 +40,7 @@ public class EtudiantService {
     }
 
     public Etudiante updateEtudiante(Etudiante e) {
-        Etudiante existingEtudiante= etudiantRepository.findById(e.getId().getIdEtu()).orElse(null);
-        existingEtudiante.setFiliere(e.getFiliere());
-        existingEtudiante.setMessage(e.getMessage());
-        //existingEtudiante.setEmail(e.getEmail());
-        //existingEtudiante.setUserName(e.getUserName());
-        //existingEtudiante.setPassword(e.getPassword());
-        //existingEtudiante.setDateNaissanceEtd(e.getDateNaissanceEtd());
-        //existingEtudiante.setDateInscpEtd(e.getDateInscpEtd());
-        //existingEtudiante.setNumTele(e.getNumTele());
-        //existingEtudiante.setModule(e.getModule());
-        return etudiantRepository.save(existingEtudiante);
+        return etudiantRepository.save(e);
     }
 
     public List<Etudiante> getAllEtudiantes() {

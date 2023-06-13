@@ -38,16 +38,8 @@ public class AdministrateurService {
     }
 
     public Administrateur updateAdministrateur(Administrateur a) {
-        Administrateur existingAdministrateur= administrateurRepository.findById(a.getIdAd()).orElse(null);
-        existingAdministrateur.setNomAdm(a.getNomAdm());
-        existingAdministrateur.setPrenomAdm(a.getPrenomAdm());
-        existingAdministrateur.setEmail(a.getEmail());
-        existingAdministrateur.setUserName(a.getUserName());
-        existingAdministrateur.setPassword(a.getPassword());
-        existingAdministrateur.setDateNaissenceAdm(a.getDateNaissenceAdm());
-        existingAdministrateur.setDateInscpAdm(a.getDateInscpAdm());
-        existingAdministrateur.setNumTele(a.getNumTele());
-        return administrateurRepository.save(existingAdministrateur);
+
+        return administrateurRepository.save(a);
     }
 
     public List<Administrateur> getAllAdministrateurs() {

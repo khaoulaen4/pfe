@@ -39,13 +39,8 @@ public class MessageService {
     }
 
     public Message updateMessage(Message sms) {
-        Message existingMessage= messageRepository.findById(sms.getIdMsg()).orElse(null);
-        existingMessage.setContenue(sms.getContenue());
-        existingMessage.setDateEnvoi(sms.getDateEnvoi());
-        existingMessage.setAdministrateurs(sms.getAdministrateurs());
-        existingMessage.setEnseignants(sms.getEnseignants());
-        existingMessage.setEtudiantes(sms.getEtudiantes());
-        return messageRepository.save(existingMessage);
+
+        return messageRepository.save(sms);
     }
 
     public List<Message> getAllMessages() {

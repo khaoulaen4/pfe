@@ -39,10 +39,10 @@
                 </thead>
 
                 <tbody>
-                <tr th:each = "modul: ${moduls}">
+                <tr th:each = "modul: ${Moduls}">
                     <td th:text = "${modul.idModul}"></td>
                     <td th:text = "${modul.nomModul}"></td>
-                    <td th:text = "${modul.filier.nomNomFil}"></td>
+                    <td th:text = "${modul.filiere.nomFil}"></td>
                     <td>
                         <a th:href = "@{/Modul/edit/{id}(id=${modul.idModul})}"
                            class = "btn btn-success">Update</a>

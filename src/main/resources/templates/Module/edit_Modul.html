@@ -32,7 +32,7 @@
                     </div>
                     <div class ="form-group">
                         <label> Filiere  </label>
-                        <select class="custom-select" th:field="*{filier}">
+                        <select class="custom-select" th:field="*{filiere}">
                             <option value="">Selectionnez un filiere</option>
                             <option th:each="filiere : ${filieres}" th:value="${filiere.idFil}" th:text="${filiere.NomFil}"></option>
                          </select>

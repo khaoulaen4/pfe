@@ -39,13 +39,8 @@ public class QuestionService {
         }
 
         public Question updateQuestion(Question Qst) {
-            Question existingQuestion= questionRepository.findById(Qst.getIdQst()).orElse(null);
-            existingQuestion.setQuiz(Qst.getQuiz());
-            existingQuestion.setQuestion(Qst.getQuestion());
-            existingQuestion.setReponse(Qst.getReponse());
-            existingQuestion.setNote(Qst.getNote());
 
-            return questionRepository.save(existingQuestion);
+            return questionRepository.save(Qst);
         }
 
         public List<Question> getAllQuestions() {

@@ -25,7 +25,7 @@ public class DepartementController {
     public String listDepartements(Model model) {
         model.addAttribute("departements", departementService.getAllDepartements());
 
-        return "Departement/Admin.html";
+        return "Departement/Admin";
     }
 
     @GetMapping("/Departement/New")

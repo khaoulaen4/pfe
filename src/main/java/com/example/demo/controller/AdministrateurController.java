@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Administrateur;
-import com.example.demo.entity.Departement;
 import com.example.demo.service.AdministrateurService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +21,7 @@ public class AdministrateurController {
     }
     @ModelAttribute("/user")
     public Administrateur administrateur() {
+
         return new Administrateur();
     }
 
@@ -30,14 +30,14 @@ public class AdministrateurController {
         Administrateur Administrateur = new Administrateur();
         model.addAttribute("user", Administrateur);
         System.out.println("first");
-        return "Register.html";
+        return "Register";
     }
 
     @PostMapping
     public String registerAdministrateurAccount(@ModelAttribute("user") Administrateur administrateur) {
         System.out.println("second");
         administrateurService.saveAdministrateur(administrateur);
-        return "redirect:/registration?success";
+        return "redirect/index";
     }
 
 }

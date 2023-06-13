@@ -31,7 +31,7 @@
             />
           </div>
 
-          <select class="custom-select" th:field="*{filier}">
+          <select class="custom-select" th:field="*{filiere}">
             <option value="">Selectionnez un filiere</option>
             <option th:each="filiere : ${filieres}" th:value="${filiere.IdFil}" th:text="${filiere.NomFil}"></option>
           </select>

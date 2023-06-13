@@ -54,7 +54,7 @@ public class Modul implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "enseignante")
+	@JoinColumn(name = "enseignante", nullable = true)
 	public Enseignant getEnseignant() {
 		return this.enseignant;
 	}

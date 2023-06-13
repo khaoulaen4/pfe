@@ -40,11 +40,8 @@ public class ChapitreService {
     }
 
     public Chapitre updateChapitre(Chapitre c) {
-        Chapitre existingChapitre= chapitreRepository.findById(c.getIdChpt()).orElse(null);
-        existingChapitre.setTitre(c.getTitre());
-        existingChapitre.setModule(c.getModule());
-        existingChapitre.setDateAjoute(c.getDateAjoute());
-        return chapitreRepository.save(existingChapitre);
+
+        return chapitreRepository.save(c);
     }
 
     public List<Chapitre> getAllChapitres() {

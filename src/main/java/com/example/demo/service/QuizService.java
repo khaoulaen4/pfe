@@ -40,13 +40,8 @@ public class QuizService {
         }
 
         public Quiz updateQuiz(Quiz Qz) {
-            Quiz existingQuiz= quizRepository.findById(Qz.getIdQz()).orElse(null);
-            existingQuiz.setTitre(Qz.getTitre());
-            existingQuiz.setDateAjoute(Qz.getDateAjoute());
-            existingQuiz.setDateLimite(Qz.getDateLimite());
-            existingQuiz.setQuestions(Qz.getQuestions());
 
-            return quizRepository.save(existingQuiz);
+            return quizRepository.save(Qz);
         }
 
         public List<Quiz> getAllQuizs() {

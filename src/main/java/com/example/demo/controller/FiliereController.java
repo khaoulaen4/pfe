@@ -63,12 +63,8 @@ public class FiliereController {
     public String updateFiliere(@PathVariable int id,
                                     @ModelAttribute("filiere") Filiere filiere,
                                     Model model) {
-        //System.out.println("hello");
+
         //get Filiere from database by id
-//        Filiere existingFiliere = filierService.getFiliereById(id);
-//        existingFiliere.setIdFil(id);
-//        existingFiliere.setCodeFil(filiere.getCodeFil());
-//        existingFiliere.setNomFil(filiere.getNomFil());
             filiere.setIdFil(id);
         // save updated filier object
         filierService.updateFiliere(filiere);
