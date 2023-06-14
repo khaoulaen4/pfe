@@ -10,20 +10,22 @@ import static jakarta.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "chapitre", catalog = "pfe")
-public class Chapitre implements java.io.Serializable {
+public class Chapitre implements java.io.Serializable  {
 
 	private Integer idChpt;
 	private Modul modul;
 	private String titre;
 	private Date dateAjoute;
+	private String Contenue;
 
 	public Chapitre() {
 	}
 
-	public Chapitre(Modul modul, String titre, Date dateAjoute) {
+	public Chapitre(Modul modul, String titre, Date dateAjoute, String Contenue) {
 		this.modul = modul;
 		this.titre = titre;
 		this.dateAjoute = dateAjoute;
+		this.Contenue = Contenue;
 	}
 
 	@Id
@@ -38,7 +40,7 @@ public class Chapitre implements java.io.Serializable {
 		this.idChpt = idChpt;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "module", nullable = false)
 	public Modul getModul() {
 		return this.modul;
@@ -47,6 +49,7 @@ public class Chapitre implements java.io.Serializable {
 	public void setModul(Modul modul) {
 		this.modul = modul;
 	}
+
 
 	@Column(name = "titre", nullable = false, length = 45)
 	public String getTitre() {
@@ -58,7 +61,7 @@ public class Chapitre implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_ajoute", nullable = false, length = 10)
+	@Column(name = "Date_ajoute", nullable = true, length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;
 	}
@@ -67,4 +70,26 @@ public class Chapitre implements java.io.Serializable {
 		this.dateAjoute = dateAjoute;
 	}
 
+
+	/* Contenu*/
+	@Column(name = "Contenue", nullable = true, length = 2250)
+	public String getContenue() {
+		return this.Contenue;
+	}
+	public void setContenue(String Contenue) {
+		this.Contenue = Contenue;
+	}
+
+	/* Contenu*/
+
+	@Override
+	public String toString() {
+		return "Chapitre{" +
+				"idChpt=" + idChpt +
+				", modul=" + modul.getNomModul() +
+				", titre='" + titre + '\'' +
+				", dateAjoute=" + dateAjoute +
+				", Contenue='" + Contenue + '\'' +
+				'}';
+	}
 }

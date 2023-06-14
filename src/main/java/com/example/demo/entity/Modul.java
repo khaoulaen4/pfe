@@ -91,7 +91,7 @@ public class Modul implements java.io.Serializable {
 		this.exercices = exercices;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "modul")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "modul")
 	public Set<Chapitre> getChapitres() {
 		return this.chapitres;
 	}

@@ -15,8 +15,8 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 public class Etudiante implements java.io.Serializable {
 
 	private Integer idEtu;
-	private int nomEtu;
-	private int prenomEtu;
+	private String nomEtu;
+	private String prenomEtu;
 	private String email;
 	private String userName;
 	private String password;
@@ -30,7 +30,7 @@ public class Etudiante implements java.io.Serializable {
 	public Etudiante() {
 	}
 
-	public Etudiante(int nomEtu, int prenomEtu, String email, String userName, String password, Date dateInscpEtd,
+	public Etudiante(String nomEtu, String prenomEtu, String email, String userName, String password, Date dateInscpEtd,
 			int filier) {
 		this.nomEtu = nomEtu;
 		this.prenomEtu = prenomEtu;
@@ -41,7 +41,7 @@ public class Etudiante implements java.io.Serializable {
 		this.filier = filier;
 	}
 
-	public Etudiante(int nomEtu, int prenomEtu, String email, String userName, String password, Date dateNaissanceEtd,
+	public Etudiante(String nomEtu, String prenomEtu, String email, String userName, String password, Date dateNaissanceEtd,
 			Date dateInscpEtd, int filier, String numTele, Set<EtudianteModule> etudianteModules,
 			Set<NoteQuiz> noteQuizs) {
 		this.nomEtu = nomEtu;
@@ -70,20 +70,20 @@ public class Etudiante implements java.io.Serializable {
 	}
 
 	@Column(name = "nom_etu", nullable = false)
-	public int getNomEtu() {
+	public String getNomEtu() {
 		return this.nomEtu;
 	}
 
-	public void setNomEtu(int nomEtu) {
+	public void setNomEtu(String nomEtu) {
 		this.nomEtu = nomEtu;
 	}
 
 	@Column(name = "prenom_etu", nullable = false)
-	public int getPrenomEtu() {
+	public String getPrenomEtu() {
 		return this.prenomEtu;
 	}
 
-	public void setPrenomEtu(int prenomEtu) {
+	public void setPrenomEtu(String prenomEtu) {
 		this.prenomEtu = prenomEtu;
 	}
 
@@ -134,7 +134,7 @@ public class Etudiante implements java.io.Serializable {
 		this.dateInscpEtd = dateInscpEtd;
 	}
 
-	@Column(name = "filier", nullable = false)
+	@Column(name = "filier", nullable = true)
 	public int getFilier() {
 		return this.filier;
 	}

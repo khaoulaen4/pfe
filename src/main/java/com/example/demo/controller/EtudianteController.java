@@ -33,7 +33,7 @@ public class EtudianteController {
 
         // create Etudiante object to hold Etudiante form data
         Etudiante Etudiante = new Etudiante();
-        model.addAttribute("Etudiante", Etudiante);
+        model.addAttribute("etudiante", Etudiante);
      /*   List<Filiere> filieres = filiereService.getAllFilieres();
         model.addAttribute("filieres", filieres);*/
 
@@ -42,9 +42,12 @@ public class EtudianteController {
 
     }
     @PostMapping("/Etudiante/Save")
-    public String saveEtudiante(@ModelAttribute("Etudiante") Etudiante etudiante) {
+    public String saveEtudiante(@ModelAttribute("etudiante") Etudiante etudiante) {
         System.out.println("Register");
+
+/*
         etudianteService.saveEtudiante(etudiante);
+*/
         return "redirect:/Register";
     }
 
