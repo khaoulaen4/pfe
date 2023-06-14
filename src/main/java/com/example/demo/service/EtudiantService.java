@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 
+@Service
 public class EtudiantService {
+
     @Autowired
     private EtudiantRepository etudiantRepository;
-
-
-
     public Etudiante saveEtudiante(Etudiante e) {
         return etudiantRepository.save(e);
     }

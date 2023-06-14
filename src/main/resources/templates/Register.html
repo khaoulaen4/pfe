@@ -67,27 +67,28 @@
                       to our awesome app!</div>
               </div>-->
               <h3 class="mb-4">Register Now</h3>
-              <form th:action="@{/registration}" method="post" th:object="${user}"class="signup-form">
+              <form th:action="@{/Etudiante/Save}" method="post" th:object="${Etudiante}"class="signup-form">
                  <div class="form-group">
-                    <label class="label" for="prenomAdm" >First Name</label>
+                    <label class="label" for="prenomEtu" >First Name</label>
                     <input
                            type = "text"
-                           id="prenomAdm"
+                           id="prenomEtu"
                            class="form-control"
-                           th:field="*{prenomAdm}"
-                           required autofocus="autofocus"
+                           th:field="*{prenomEtu}"
                            placeholder="first Name"
+                           required autofocus="autofocus"
+
                     />
                 </div>
                   <div class="form-group">
-                      <label class="label" for="nomAdm" >last Name</label>
+                      <label class="label" for="nomEtu" >last Name</label>
                       <input
                               type = "text"
-                              id="nomAdm"
+                              id="nomEtu"
                               class="form-control"
-                              th:field="*{nomAdm}"
-                              required autofocus="autofocus"
+                              th:field="*{nomEtu}"
                               placeholder="last Name"
+                              required autofocus="autofocus"
                       />
                   </div>
                   <div class="form-group">
@@ -114,7 +115,7 @@
              </div>
                   <div class="form-group">
                       <label class="label" for="email">Email Address</label>
-                      <input type="text"
+                      <input type="email"
                              id="email"
                              class="form-control"
                              placeholder="Email Address"
@@ -122,11 +123,11 @@
                              required autofocus="autofocus"/>
                   </div>
                   <div class="form-group">
-                      <label class="label" for="dateNaissenceAdm">Date of Birth</label>
+                      <label class="label" for="dateNaissanceEtd">Date of Birth</label>
                       <input type="date"
-                             id="dateNaissenceAdm"
+                             id="dateNaissanceEtd"
                              class="form-control"
-                             th:field="*{dateNaissenceAdm}"
+                             th:field="*{dateNaissanceEtd}"
                              required autofocus="autofocus"/>
                   </div>
                   <div class="form-group">
@@ -150,10 +151,11 @@
                  />
              </div>-->
              <div class="form-group d-flex justify-content-end mt-4">
-                 <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span></button>
+                 <button type="submit" class="btn btn-primary submit"><span class="fa fa-paper-plane"></span>
+                 </button>
              </div>
          </form>
-         <p class="text-center">Already have an account? <a href="index.html">Sign In</a></p>
+         <p class="text-center">Already have an account? <a href="/" th:href="@{/index}"> Sign In</a></p>
      </div>
  </div>
 </div>
