@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Exercice/header.html"></div>
+
+<br>
+<div class="container">
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/Exercice/New}" class = "btn btn-secondary btn-sm mb-3"> Add Exercice</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contenue</th>
+            <th>Module</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="Exercice : ${Exercice}">
+            <td th:text="${Exercice.nomEx}"></td>
+            <td th:text="${Exercice.Contenue}"></td>
+            <td th:text = "${Exercice.modul.nomModul}"></td>
+            <td>
+                <a th:href = "@{/Exercice/edit/{id}(id=${Exercice.idEx})}"
+                   class = "btn btn-success">Update</a>
+
+                <a th:href = "@{/Exercice/Delet/{id}(id=${Exercice.idEx})}"
+                   class = "btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

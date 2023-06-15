@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit_Chapitre</title>
+    <meta charset="ISO-8859-1">
+    <title>Edite Chapitre</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
+<div th:include="Chapitre/header.html"></div>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update Module </h1>
+            <div class = "card-body">
+                <form th:action="@{/Chapitre/Update/{id} (id=${Chapitre.idChpt})}" enctype="multipart/form-data" th:object = "${Chapitre}" method="POST">
 
+                    <div class ="form-group">
+                        <label> Title  chapitre</label>
+                        <input
+                                type = "text"
+                                name = "titre"
+                                th:field = "*{titre}"
+                                class = "form-control"
+                                placeholder="Enter title chapitre "
+                        />
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label"> Chapitre input </label>
+                            <input class="form-control" name="file"  type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+
+                        <select class="custom-select" th:field="*{modul}">
+                            <option value="">Selectionnez un Module</option>
+                            <option th:each="modul : ${modul}" th:value="${modul.IdModul}" th:text="${modul.nomModul}"></option>
+                        </select>
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-secondary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

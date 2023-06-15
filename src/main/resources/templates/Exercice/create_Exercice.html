@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Exercice/header.html"></div>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Exercice </h1>
+            <div class = "card-body">
+                <form th:action="@{/Exercice/Save}" enctype="multipart/form-data" th:object = "${Exercice}" method="POST">
+
+                    <div class ="form-group">
+                        <label> Exercice Name </label>
+                        <input
+                                type = "text"
+                                name = "titre"
+                                th:field = "*{nomEx}"
+                                class = "form-control"
+                                placeholder="Enter Exercice Name "
+                        />
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label"> Exercice input </label>
+                            <input class="form-control" name="file"  type="file" id="formFile">
+                        </div>
+                    </div>
+                    <!--
+                                            <p class="text-center">Center aligned text on all viewport sizes.</p>
+                                       </div>
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea class="form-control" id="description" name="description" required></textarea>
+                                        </div>
+                    -->
+
+                    <select class="custom-select" th:field="*{modul}">
+                        <option value="">Selectionnez un Module</option>
+                        <option th:each="modul : ${modul}" th:value="${modul.IdModul}" th:text="${modul.nomModul}"></option>
+                    </select>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-secondary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

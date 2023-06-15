@@ -1,10 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Chapitre;
-import com.example.demo.entity.Filiere;
 import com.example.demo.entity.Modul;
 import com.example.demo.service.ChapitreService;
-import com.example.demo.service.FiliereService;
 import com.example.demo.service.ModulService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -29,7 +27,6 @@ public class ChapitreController {
     private ChapitreService chapitreService;
     private ModulService modulService ;
 
-
     public ChapitreController(ChapitreService chapitreService ,ModulService modulService) {
         super();
         this.chapitreService = chapitreService;
@@ -38,14 +35,8 @@ public class ChapitreController {
     }
     @GetMapping("/Chapitre")
     public String listChapitres(Model model) {
-        //System.out.println("hit");
-        for (Chapitre c: chapitreService.getAllChapitres()) {
-            System.out.println(c.toString());
-        }
 
         model.addAttribute("Chapitre", chapitreService.getAllChapitres());
-
-        //System.out.println("hi");
         return "Chapitre/Chapitre";
     }
     @GetMapping("/Chapitre/New")
@@ -58,15 +49,12 @@ public class ChapitreController {
         model.addAttribute("modul", modul);
 
         return "Chapitre/create_Chapitre";
-
     }
     @PostMapping("/Chapitre/Save")
     public String saveChapitre(@ModelAttribute("Chapitre") Chapitre chapitre , @RequestParam("file") MultipartFile file) {
-        //System.out.println(Chapitre);
         try {
             // Generate a unique file name
             String fileName = UUID.randomUUID().toString() + ".pdf";
-
             // Save the file to the upload directory
             Path filePath = Paths.get(uploadDirectory, fileName);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
@@ -80,8 +68,6 @@ public class ChapitreController {
             e.printStackTrace();
             return "redirect:/error";
         }
-
-
     }
 
     @GetMapping("/Chapitre/edit/{id}")
@@ -95,16 +81,27 @@ public class ChapitreController {
     @PostMapping("/Chapitre/Update/{id}")
     public String updateModul(@PathVariable int id,
                               @ModelAttribute("Chapitre") Chapitre chapitre,
-                              Model model) {
-        //System.out.println("hello");
-        //get chapitre from database by id
-        chapitre.setIdChpt(id);
-        // save updated chapitre object
-        chapitreService.updateChapitre(chapitre);
-        return "redirect:/Chapitre";
-    }
+                              Model model,@RequestParam("file") MultipartFile file) {
+        try {
+            // Generate a unique file name
+            String fileName = UUID.randomUUID().toString() + ".pdf";
 
-    // handler method to handle delete Modul request
+            // Save the file to the upload directory
+            Path filePath = Paths.get(uploadDirectory, fileName);
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+            chapitre.setContenue(fileName);
+            //get chapitre from database by id
+            chapitre.setIdChpt(id);
+            // save updated chapitre object
+            chapitreService.updateChapitre(chapitre);
+            return "redirect:/Chapitre";
+        }
+        catch (IOException e) {
+            // Handle file upload error
+            e.printStackTrace();
+            return "redirect:/error";
+        }
+    }
 
     @GetMapping("/Chapitre/Delet/{id}")
     public String deleteChapitre(@PathVariable int id) {

@@ -19,14 +19,18 @@ public class Exercice implements java.io.Serializable {
 	private Modul modul;
 	private String nomEx;
 	private Date dateAjoute;
+	private String Contenue;
+
 
 	public Exercice() {
 	}
 
-	public Exercice(Modul modul, String nomEx, Date dateAjoute) {
+	public Exercice(Modul modul, String nomEx, Date dateAjoute,	String Contenue) {
 		this.modul = modul;
 		this.nomEx = nomEx;
 		this.dateAjoute = dateAjoute;
+		this.Contenue = Contenue;
+
 	}
 
 	@Id
@@ -61,7 +65,7 @@ public class Exercice implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_ajoute", nullable = false, length = 10)
+	@Column(name = "Date_ajoute", nullable = true, length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;
 	}
@@ -70,4 +74,13 @@ public class Exercice implements java.io.Serializable {
 		this.dateAjoute = dateAjoute;
 	}
 
+	/* Contenu*/
+	@Column(name = "Contenue", nullable = false, length = 2250)
+	public String getContenue() {
+		return this.Contenue;
+	}
+	public void setContenue(String Contenue) {
+		this.Contenue = Contenue;
+	}
+	/* Contenu*/
 }

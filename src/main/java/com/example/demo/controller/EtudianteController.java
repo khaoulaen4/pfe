@@ -28,6 +28,7 @@ public class EtudianteController {
         //System.out.println("hi");
         return "index.html";
     }*/
+
     @GetMapping("/Etudiante/New")
     public String createEtudianteForm(Model model) {
 
@@ -41,13 +42,12 @@ public class EtudianteController {
         return "Register";
 
     }
+
     @PostMapping("/Etudiante/Save")
     public String saveEtudiante(@ModelAttribute("etudiante") Etudiante etudiante) {
         System.out.println("Register");
 
-/*
         etudianteService.saveEtudiante(etudiante);
-*/
         return "redirect:/Register";
     }
 

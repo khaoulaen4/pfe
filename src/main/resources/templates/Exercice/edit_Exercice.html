@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edite Exercice</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:include="Exercice/header.html"></div>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update Exercice </h1>
+            <div class = "card-body">
+                <form th:action="@{/Exercice/Update/{id} (id=${Exercice.idEx})}" enctype="multipart/form-data" th:object = "${Exercice}" method="POST">
+
+                    <div class ="form-group">
+                        <label> Exercice Name</label>
+                        <input
+                                type = "text"
+                                name = "titre"
+                                th:field = "*{nomEx}"
+                                class = "form-control"
+                                placeholder="Enter Exercice Name "
+                        />
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label"> Exercice input </label>
+                            <input class="form-control" name="file"  type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class ="form-group">
+
+                        <select class="custom-select" th:field="*{modul}">
+                            <option value="">Selectionnez un Module</option>
+                            <option th:each="modul : ${modul}" th:value="${modul.IdModul}" th:text="${modul.nomModul}"></option>
+                        </select>
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-secondary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
