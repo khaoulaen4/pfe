@@ -1,12 +1,352 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz</title>
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<div th:include="Quiz/header.html"></div>
-<br>
+<!--<div class="container">
+    <h1>Create Quiz</h1>
+    <form th:action="@{/quizzes}"   method="post">
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
 
+                <textarea class="form-control" placeholder="Leave Question 1 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+                <textarea class="form-control" placeholder="Leave Question 2 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 3 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 4 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 5 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 6 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 7 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 8 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 9 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+        <div class="form-group">
+            <div class="form-floating">
+                <label for="floatingTextarea">Quiz Question</label>
+
+                <textarea class="form-control" placeholder="Leave Question 8 here" id="floatingTextarea"></textarea>
+            </div><br>
+
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+            <input type="text" class="form-control"  name="title" required>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>-->
+    <div class="container">
+        <h1>Create Quiz</h1>
+        <hr>
+            <form th:action="@{/quizzes}"   method="post">
+
+                <div class="questions" id="questions">
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Titre de Quiz</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="titre">
+                        </div>
+                    </div>
+                     <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Question</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="question[]">
+                        </div>
+                     </div>
+
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Note </label>
+                        <div class="col-sm-8">
+                             <input type="number" class="form-control" name="notes[]"  min="1">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Reponse 1</label>
+                        <div class="col-sm-8">
+                             <input type="text" class="form-control" required name="reponses[]">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Reponse 2</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" required name="reponses[]">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Reponse 3</label>
+                        <div class="col-sm-8">
+                             <input type="text" class="form-control" required name="reponses[]">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label  class="col-sm-2 col-form-label">Reponse 4 </label>
+                        <div class="col-sm-8">
+                             <input type="text" class="form-control" required name="reponses[]">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-secondary" type="button"id="add_Quiz" onclick="add()">add quiz</button>
+                    <button type="submit" class="btn btn-outline-secondary">send</button>
+                </div>
+            </form>
+    </div>
+<script>
+    function add(){
+        // alert("h");
+        var question1 = document.createElement("DIV");
+        question1.setAttribute("class", "row mb-3");
+
+
+
+
+        var label1 = document.createElement("LABEL");
+        label1.innerHTML= "Question";
+        label1.setAttribute('class',"col-sm-2 col-form-label");
+        question1.appendChild(label1);
+
+        var question1a = document.createElement("DIV");
+        question1a.setAttribute("class", "col-sm-8");
+
+        var input1 = document.createElement("INPUT");
+        input1.setAttribute("class", 'form-control');
+        input1.setAttribute("type", "text");
+        input1.setAttribute("name", 'question[]');
+        input1.setAttribute("required", 'required');
+        question1a.appendChild(input1);
+
+        question1.appendChild(question1a);
+
+
+        var question2 = document.createElement("DIV");
+        question2.setAttribute("class", "row mb-3");
+
+        var label2 = document.createElement("LABEL");
+        label2.innerHTML= "Note";
+        label2.setAttribute('class',"col-sm-2 col-form-label");
+        question2.appendChild(label2);
+
+        var question2a = document.createElement("DIV");
+        question2a.setAttribute("class", "col-sm-8");
+
+        var input2 = document.createElement("INPUT");
+        input2.setAttribute("class", 'form-control');
+        input2.setAttribute("type", "number");
+        input2.setAttribute("name", 'notes[]');
+        input2.setAttribute("required", 'required');
+        question2a.appendChild(input2);
+
+        question2.appendChild(question2a);
+
+
+
+        var question3 = document.createElement("DIV");
+        question3.setAttribute("class", "row mb-3");
+
+        var label3 = document.createElement("LABEL");
+        label3.innerHTML= "Reponse 1";
+        label3.setAttribute('class',"col-sm-2 col-form-label");
+        question3.appendChild(label3);
+
+        var question3a = document.createElement("DIV");
+        question3a.setAttribute("class", "col-sm-8");
+
+        var input3 = document.createElement("INPUT");
+        input3.setAttribute("class", 'form-control');
+        input3.setAttribute("type", "text");
+        input3.setAttribute("name", 'reponses[]');
+        input3.setAttribute("required", 'required');
+        question3a.appendChild(input3);
+
+        question3.appendChild(question3a);
+
+
+
+        var question4 = document.createElement("DIV");
+        question4.setAttribute("class", "row mb-3");
+
+        var label4 = document.createElement("LABEL");
+        label4.innerHTML= "Reponse 2";
+        label4.setAttribute('class',"col-sm-2 col-form-label");
+        question4.appendChild(label4);
+
+        var question4a = document.createElement("DIV");
+        question4a.setAttribute("class", "col-sm-8");
+
+        var input4 = document.createElement("INPUT");
+        input4.setAttribute("class", 'form-control');
+        input4.setAttribute("type", "text");
+        input4.setAttribute("name", 'reponses[]');
+        input4.setAttribute("required", 'required');
+        question4a.appendChild(input4);
+
+        question4.appendChild(question4a);
+
+
+
+        var question5 = document.createElement("DIV");
+        question5.setAttribute("class", "row mb-3");
+
+        var label5 = document.createElement("LABEL");
+        label5.innerHTML= "Reponse 3";
+        label5.setAttribute('class',"col-sm-2 col-form-label");
+        question5.appendChild(label5);
+
+        var question5a = document.createElement("DIV");
+        question5a.setAttribute("class", "col-sm-8");
+
+        var input5 = document.createElement("INPUT");
+        input5.setAttribute("class", 'form-control');
+        input5.setAttribute("type", "text");
+        input5.setAttribute("name", 'reponses[]');
+        input5.setAttribute("required", 'required');
+        question5a.appendChild(input5);
+
+        question5.appendChild(question5a);
+
+
+
+        var question6 = document.createElement("DIV");
+        question6.setAttribute("class", "row mb-3");
+
+        var label6 = document.createElement("LABEL");
+        label6.innerHTML= "Reponse 4";
+        label6.setAttribute('class',"col-sm-2 col-form-label");
+        question6.appendChild(label6);
+
+        var question6a = document.createElement("DIV");
+        question6a.setAttribute("class", "col-sm-8");
+
+        var input6 = document.createElement("INPUT");
+        input6.setAttribute("class", 'form-control');
+        input6.setAttribute("type", "text");
+        input6.setAttribute("name", 'reponses[]');
+        input6.setAttribute("required", 'required');
+        question6a.appendChild(input6);
+
+        question6.appendChild(question6a);
+
+
+
+        var hr = document.createElement("HR");
+
+        document.getElementById("questions").appendChild(hr);
+        document.getElementById("questions").appendChild(question1);
+        document.getElementById("questions").appendChild(question2);
+        document.getElementById("questions").appendChild(question3);
+        document.getElementById("questions").appendChild(question4);
+        document.getElementById("questions").appendChild(question5);
+        document.getElementById("questions").appendChild(question6);
+
+
+    }
+</script>
 </body>
 </html>

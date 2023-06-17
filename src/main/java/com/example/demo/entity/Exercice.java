@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -65,6 +66,7 @@ public class Exercice implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Date_ajoute", nullable = true, length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;

@@ -56,7 +56,7 @@ public class Quiz implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "module", nullable = false)
+	@JoinColumn(name = "module", nullable = true)
 	public Modul getModul() {
 		return this.modul;
 	}
@@ -75,7 +75,7 @@ public class Quiz implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_ajoute", nullable = false, length = 10)
+	@Column(name = "Date_ajoute", nullable = true, length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;
 	}
@@ -85,7 +85,7 @@ public class Quiz implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_limite", length = 10)
+	@Column(name = "Date_limite",nullable = true, length = 10)
 	public Date getDateLimite() {
 		return this.dateLimite;
 	}

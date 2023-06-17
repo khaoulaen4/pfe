@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-
 @Controller
 public class EtudianteController {
     private EtudiantService etudianteService;
     private FiliereService filiereService ;
 
-    public EtudianteController(EtudiantService etudianteService) {
+    public EtudianteController(EtudiantService etudianteService, FiliereService filiereService) {
         super();
         this.etudianteService = etudianteService;
+        this.filiereService = filiereService;
+
     }
 /*    @GetMapping("/Etudiante")
     public String listEtudiantes(Model model) {
@@ -35,8 +36,8 @@ public class EtudianteController {
         // create Etudiante object to hold Etudiante form data
         Etudiante Etudiante = new Etudiante();
         model.addAttribute("etudiante", Etudiante);
-     /*   List<Filiere> filieres = filiereService.getAllFilieres();
-        model.addAttribute("filieres", filieres);*/
+        List<Filiere> filieres = filiereService.getAllFilieres();
+        model.addAttribute("filieres", filieres);
 
         System.out.println("create");
         return "Register";
@@ -47,14 +48,10 @@ public class EtudianteController {
     public String saveEtudiante(@ModelAttribute("etudiante") Etudiante etudiante) {
         System.out.println("Register");
 
-        etudianteService.saveEtudiante(etudiante);
-        return "redirect:/Register";
+        Etudiante etudiant = etudianteService.saveEtudiante(etudiante);
+        System.out.println(etudiante.getUserName());
+
+        return "redirect:/Etudiante/New";
     }
 
-
-
-
-
-
 }
-

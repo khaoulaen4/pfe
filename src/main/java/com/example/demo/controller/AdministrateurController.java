@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/registration")
 
 public class AdministrateurController {
     private AdministrateurService administrateurService;
