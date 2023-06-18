@@ -54,14 +54,16 @@ public class DepartementController {
     public String updateDepartement(@PathVariable int id,
                                     @ModelAttribute("departement") Departement departement,
                                     Model model) {
-        System.out.println("hello");
         //get Departement from database by id
-        Departement existingDepartement = departementService.getDepartementById(id);
+        departement.setIdDep(id);
+        departementService.updateDepartement(departement);
+
+       /* Departement existingDepartement = departementService.getDepartementById(id);
         existingDepartement.setIdDep(id);
         existingDepartement.setNomDep(departement.getNomDep());
         existingDepartement.setFilieres(departement.getFilieres());
         // save updated Departement object
-        departementService.updateDepartement(existingDepartement);
+        departementService.updateDepartement(existingDepartement);*/
         return "redirect:/Departements";
     }
 

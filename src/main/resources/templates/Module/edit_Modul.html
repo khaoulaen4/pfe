@@ -1,19 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr"
+      data-theme="theme-default" data-assets-path="/assets/"
+      data-template="vertical-menu-template-free">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Module</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Edite Module</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon"
+          href="/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/assets/vendor/css/core.css"
+          class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css"
+          class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
+          href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet"
+          href="/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/assets/js/config.js"></script>
 </head>
 <body>
-<div th:include="Module/header.html"></div>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
 
-<br>
-<br>
-<div class = "container">
+        <div th:replace="test/header::header"></div>
+        <!-- Layout container -->
+        <div class="layout-page">
+
+            <div th:replace="test/nav::nav"></div>
+            <div class="content-wrapper">
+                <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
     <div class = "row">
         <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class = "text-center"> Update Module </h1>
@@ -30,9 +80,10 @@
                                 placeholder="Enter Module Name"
                         />
                     </div>
+                    <br>
                     <div class ="form-group">
                         <label> Filiere  </label>
-                        <select class="custom-select" th:field="*{filiere}">
+                        <select class="custom-select form-control" th:field="*{filiere}">
                             <option value="">Selectionnez un filiere</option>
                             <option th:each="filiere : ${filieres}" th:value="${filiere.idFil}" th:text="${filiere.NomFil}"></option>
                          </select>
@@ -48,5 +99,80 @@
         </div>
     </div>
 </div>
+<!-- / Content -->
+
+<div class="content-backdrop fade"></div>
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="/assets/vendor/libs/popper/popper.js"></script>
+<script src="/assets/vendor/js/bootstrap.js"></script>
+<script
+        src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="/assets/js/dashboards-analytics.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+<script>
+    var img;
+    $(document).ready(() => {
+        $('#formFileMultiple').change(function () {
+            // const file = this.files[0];
+            // console.log(file + this.files.length);
+            // alert(this.files.length);
+            $("#box_list_images").html("");
+            $("#box_image").html("");
+            for (let i = 0; i < this.files.length; i++) {
+
+                if (this.files[i]) {
+                    let reader = new FileReader();
+                    reader.onload = function (event) {
+                        // console.log(event.target.result);
+                        img = $("<img onclick='showImage(event)' style='width:40px; margin: 0 3px; cursor: pointer;' src=" + event.target.result + " />");
+                        $("#box_list_images").append(img);
+                        if (i == 0) {
+                            $("#box_image").append($("<img id='imgPreview' style='max-width:100%;' src=" + event.target.result + " />"));
+                        }
+                    }
+
+                    reader.readAsDataURL(this.files[i]);
+                }
+            }
+        });
+    });
+    function showImage(event) {
+        $('#imgPreview').attr('src', event.target.src);
+    }
+    function detailsshowImage(event) {
+        $('#DetailsimgPreview').attr('src', event.target.src);
+    }
+</script>
+
 </body>
 </html>

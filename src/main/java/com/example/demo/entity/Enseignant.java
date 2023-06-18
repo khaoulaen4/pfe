@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -111,6 +112,7 @@ public class Enseignant implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Date_naissance_eng", length = 10)
 	public Date getDateNaissanceEng() {
 		return this.dateNaissanceEng;
@@ -121,7 +123,8 @@ public class Enseignant implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Date_inscp_eng", nullable = false, length = 10)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "Date_inscp_eng", columnDefinition = "DATE DEFAULT CURRENT_DATE", nullable = true, length = 10)
 	public Date getDateInscpEng() {
 		return this.dateInscpEng;
 	}
@@ -139,7 +142,7 @@ public class Enseignant implements java.io.Serializable {
 		this.numTele = numTele;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "enseignant")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "enseignant")
 	public Set<Modul> getModuls() {
 		return this.moduls;
 	}

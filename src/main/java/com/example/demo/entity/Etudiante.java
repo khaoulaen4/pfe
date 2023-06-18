@@ -59,7 +59,6 @@ public class Etudiante implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "id_etu", unique = true, nullable = false)
 	public Integer getIdEtu() {
 		return this.idEtu;

@@ -30,7 +30,7 @@ public class FiliereController {
     public String listFilieres(Model model) {
         model.addAttribute("filieres", filierService.getAllFilieres());
 
-        return "Filiere/filiere.html";
+        return "Filiere/filiere";
     }
 
     @GetMapping("/Filiere/New")

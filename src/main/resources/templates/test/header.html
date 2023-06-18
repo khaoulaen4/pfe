@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header id="header" th:fragment="header">
+
+	<aside id="layout-menu"
+		class="layout-menu menu-vertical menu bg-menu-theme">
+		<div class="app-brand demo">
+			<a href="/index" class="app-brand-link"> <!-- <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span> -->
+				<img src="/assets/img/badre-logo.png" style="width: 100%;"
+				alt="logo" srcset="">
+			</a> <a href="javascript:void(0);"
+				class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+				<i class="bx bx-chevron-left bx-sm align-middle"></i>
+			</a>
+		</div>
+
+		<div class="menu-inner-shadow"></div>
+
+		<ul class="menu-inner py-1">
+			<!-- Dashboard -->
+			<li class="menu-item active"><a href="/index" class="menu-link">
+					<i class='menu-icon tf-icons bx bx-home-smile bx-tada'></i>
+					<div data-i18n="Analytics">Dashboard</div>
+			</a></li>
+			<li class="menu-item "><a href="/Departements" class="menu-link"> <i
+					class="menu-icon tf-icons bx bx-home-circle"></i>
+					<div data-i18n="gestion maisons">Departements</div>
+			</a></li>
+			<li class="menu-item"><a href="/Filieres" class="menu-link"> <i
+					class="menu-icon tf-icons bx bx-key"></i>
+					<div data-i18n="gestion Clients Vendeur">Filieres</div>
+			</a></li>
+			<li class="menu-item"><a href="/Moduls" class="menu-link"> <i
+					class="menu-icon tf-icons bx bx-key"></i>
+					<div data-i18n="gestion Clients Vendeur">Modules</div>
+			</a></li>
+			<li class="menu-item "><a href="/Enseignante" class="menu-link"> <i
+					class='menu-icon tf-icons bx bx-user'></i>
+					<div data-i18n="gestion Clients Consommateur">Ensiegantes</div>
+			</a></li>
+			<li class="menu-item "><a href="/Etudiante" class="menu-link"> <i
+					class='menu-icon tf-icons bx bx-user'></i>
+					<div data-i18n="gestion Clients Consommateur">Etudiantes</div>
+			</a></li>
+
+		</ul>
+	</aside>
+	<!-- / Menu -->
+</header>
+
