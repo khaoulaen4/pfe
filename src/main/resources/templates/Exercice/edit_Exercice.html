@@ -84,11 +84,15 @@
                                                 <label for="formFile" class="form-label"> Exercice input </label>
                                                 <input class="form-control" name="file" type="file" id="formFile">
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="formFile" class="form-label"> Chapitre Image </label>
+                                                <input class="form-control" name="imag" type="file" id="formFile">
+                                            </div>
                                         </div>
 
                                         <div class="form-group">
-
-                                            <select class="custom-select" th:field="*{modul}">
+                                            <label for="formFile" class="form-label"> Selectionnez un Module </label>
+                                            <select class="custom-select form-control" th:field="*{modul}">
                                                 <option value="">Selectionnez un Module</option>
                                                 <option th:each="modul : ${modul}" th:value="${modul.IdModul}"
                                                         th:text="${modul.nomModul}"></option>

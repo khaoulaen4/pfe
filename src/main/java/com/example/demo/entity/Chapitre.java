@@ -19,14 +19,18 @@ public class Chapitre implements java.io.Serializable  {
 	private Date dateAjoute;
 	private String Contenue;
 
+	private String Image;
+
 	public Chapitre() {
 	}
 
-	public Chapitre(Modul modul, String titre, Date dateAjoute, String Contenue) {
+	public Chapitre(Modul modul, String titre, Date dateAjoute, String Contenue,String Image) {
 		this.modul = modul;
 		this.titre = titre;
 		this.dateAjoute = dateAjoute;
 		this.Contenue = Contenue;
+		this.Image = Image;
+
 	}
 
 	@Id
@@ -63,7 +67,7 @@ public class Chapitre implements java.io.Serializable  {
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "Date_ajoute", nullable = true, length = 10)
+	@Column(name = "Date_ajoute", nullable = true, columnDefinition = "DATE DEFAULT CURRENT_DATE", length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;
 	}
@@ -83,6 +87,14 @@ public class Chapitre implements java.io.Serializable  {
 	}
 
 	/* Contenu*/
+	@Column(name = "Image", nullable = true, length = 2250)
+	public String getImage() {
+		return this.Image;
+	}
+	public void setImage(String Image) {
+		this.Image = Image;
+	}
+
 
 	@Override
 	public String toString() {

@@ -51,15 +51,24 @@ public class ChapitreController {
         return "Chapitre/create_Chapitre";
     }
     @PostMapping("/Chapitre/Save")
-    public String saveChapitre(@ModelAttribute("Chapitre") Chapitre chapitre , @RequestParam("file") MultipartFile file) {
+    public String saveChapitre(@ModelAttribute("Chapitre") Chapitre chapitre ,
+                               @RequestParam("file") MultipartFile file ,
+                               @RequestParam("imag") MultipartFile imag) {
         try {
             // Generate a unique file name
             String fileName = UUID.randomUUID().toString() + ".pdf";
             // Save the file to the upload directory
             Path filePath = Paths.get(uploadDirectory, fileName);
+
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
             chapitre.setContenue(fileName);
-            // File stored successfully, perform additional logic if needed
+
+            String imgName = UUID.randomUUID().toString() + ".jpg";
+            // Save the image to the upload directory
+            Path imagPath = Paths.get(uploadDirectory, imgName);
+            Files.copy(imag.getInputStream(), imagPath, StandardCopyOption.REPLACE_EXISTING);
+            chapitre.setImage(imgName);
+            // image stored successfully, perform additional logic if needed
             chapitreService.saveChapitre(chapitre);
             return "redirect:/Chapitre";
         }
@@ -81,15 +90,24 @@ public class ChapitreController {
     @PostMapping("/Chapitre/Update/{id}")
     public String updateModul(@PathVariable int id,
                               @ModelAttribute("Chapitre") Chapitre chapitre,
-                              Model model,@RequestParam("file") MultipartFile file) {
+                              Model model,
+                              @RequestParam("file") MultipartFile file,
+                              @RequestParam("imag") MultipartFile imag) {
         try {
             // Generate a unique file name
             String fileName = UUID.randomUUID().toString() + ".pdf";
 
             // Save the file to the upload directory
             Path filePath = Paths.get(uploadDirectory, fileName);
+
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
             chapitre.setContenue(fileName);
+
+            String imgName = UUID.randomUUID().toString() + ".jpg";
+            // Save the image to the upload directory
+            Path imagPath = Paths.get(uploadDirectory, imgName);
+            Files.copy(imag.getInputStream(), imagPath, StandardCopyOption.REPLACE_EXISTING);
+            chapitre.setImage(imgName);
             //get chapitre from database by id
             chapitre.setIdChpt(id);
             // save updated chapitre object
@@ -102,7 +120,6 @@ public class ChapitreController {
             return "redirect:/error";
         }
     }
-
     @GetMapping("/Chapitre/Delet/{id}")
     public String deleteChapitre(@PathVariable int id) {
         chapitreService.deleteChapitre(id);

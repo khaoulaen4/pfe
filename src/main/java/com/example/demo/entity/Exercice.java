@@ -22,15 +22,18 @@ public class Exercice implements java.io.Serializable {
 	private Date dateAjoute;
 	private String Contenue;
 
+	private String Image;
 
 	public Exercice() {
 	}
 
-	public Exercice(Modul modul, String nomEx, Date dateAjoute,	String Contenue) {
+	public Exercice(Modul modul, String nomEx, Date dateAjoute,	String Contenue,String Image) {
 		this.modul = modul;
 		this.nomEx = nomEx;
 		this.dateAjoute = dateAjoute;
 		this.Contenue = Contenue;
+		this.Image = Image;
+
 
 	}
 
@@ -67,7 +70,7 @@ public class Exercice implements java.io.Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "Date_ajoute", nullable = true, length = 10)
+	@Column(name = "Date_ajoute", nullable = true, columnDefinition = "DATE DEFAULT CURRENT_DATE", length = 10)
 	public Date getDateAjoute() {
 		return this.dateAjoute;
 	}
@@ -85,4 +88,12 @@ public class Exercice implements java.io.Serializable {
 		this.Contenue = Contenue;
 	}
 	/* Contenu*/
+
+	@Column(name = "Image", nullable = true, length = 2250)
+	public String getImage() {
+		return this.Image;
+	}
+	public void setImage(String Image) {
+		this.Image = Image;
+	}
 }

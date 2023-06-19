@@ -49,7 +49,9 @@ public class ExerciceController {
         return "Exercice/create_Exercice";
     }
     @PostMapping("/Exercice/Save")
-    public String saveExercice(@ModelAttribute("Exercice") Exercice exercice , @RequestParam("file") MultipartFile file) {
+    public String saveExercice(@ModelAttribute("Exercice") Exercice exercice ,
+                               @RequestParam("file") MultipartFile file,
+                               @RequestParam("imag") MultipartFile imag) {
         try {
             // Generate a unique file name
             String fileName = UUID.randomUUID().toString() + ".pdf";
@@ -58,6 +60,11 @@ public class ExerciceController {
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
             exercice.setContenue(fileName);
             // File stored successfully, perform additional logic if needed
+            String imgName = UUID.randomUUID().toString() + ".jpg";
+            // Save the image to the upload directory
+            Path imagPath = Paths.get(uploadDirectory, imgName);
+            Files.copy(imag.getInputStream(), imagPath, StandardCopyOption.REPLACE_EXISTING);
+            exercice.setImage(imgName);
             exerciceService.saveExercice(exercice);
             return "redirect:/Exercice";
         }
@@ -79,7 +86,8 @@ public class ExerciceController {
     @PostMapping("/Exercice/Update/{id}")
     public String updateExercice(@PathVariable int id,
                               @ModelAttribute("Exercice") Exercice exercice,
-                              Model model,@RequestParam("file") MultipartFile file) {
+                              Model model,@RequestParam("file") MultipartFile file,
+                                 @RequestParam("imag") MultipartFile imag) {
         try {
             // Generate a unique file name
             String fileName = UUID.randomUUID().toString() + ".pdf";
@@ -88,6 +96,12 @@ public class ExerciceController {
             Path filePath = Paths.get(uploadDirectory, fileName);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
             exercice.setContenue(fileName);
+
+            String imgName = UUID.randomUUID().toString() + ".jpg";
+            // Save the image to the upload directory
+            Path imagPath = Paths.get(uploadDirectory, imgName);
+            Files.copy(imag.getInputStream(), imagPath, StandardCopyOption.REPLACE_EXISTING);
+            exercice.setImage(imgName);
             //get chapitre from database by id
             exercice.setIdEx(id);
             // save updated Exercice object
