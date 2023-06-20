@@ -14,6 +14,11 @@ public class ConfigurationMapping implements WebMvcConfigurer {
         registry.addViewController("/about").setViewName("about");
         registry.addViewController("/course").setViewName("course");
         registry.addViewController("/Register").setViewName("Register");
+        registry.addViewController("/AfficheCoure").setViewName("AfficheCoure");
+
+/*
+        registry.addViewController("/Exercice").setViewName("Exercice");
+*/
 
     }
 

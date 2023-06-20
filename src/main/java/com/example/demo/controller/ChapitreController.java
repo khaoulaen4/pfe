@@ -45,9 +45,8 @@ public class ChapitreController {
         model.addAttribute("Chapitre", chapitreService.getAllChapitres());
         return "course";
     }
-    @GetMapping("/AfficheCoure")
+  @GetMapping("/AfficheCoure")
     public String AfficheCoures(Model model) {
-
         model.addAttribute("Chapitre", chapitreService.getAllChapitres());
         return "AfficheCoure";
     }

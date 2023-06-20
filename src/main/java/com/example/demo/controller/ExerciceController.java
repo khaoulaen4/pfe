@@ -37,6 +37,13 @@ public class ExerciceController {
         model.addAttribute("Exercice", exerciceService.getAllExercices());
         return "Exercice/Exercice";
     }
+    @GetMapping("/Exercice_affiche")
+    public String afficheExercice(Model model) {
+
+        model.addAttribute("Exercice", exerciceService.getAllExercices());
+
+        return "Exercice_affiche";
+    }
     @GetMapping("/Exercice/New")
     public String createExerciceForm(Model model) {
 
