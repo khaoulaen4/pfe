@@ -39,6 +39,18 @@ public class ChapitreController {
         model.addAttribute("Chapitre", chapitreService.getAllChapitres());
         return "Chapitre/Chapitre";
     }
+    @GetMapping("/course")
+    public String afficheChapitres(Model model) {
+
+        model.addAttribute("Chapitre", chapitreService.getAllChapitres());
+        return "course";
+    }
+    @GetMapping("/AfficheCoure")
+    public String AfficheCoures(Model model) {
+
+        model.addAttribute("Chapitre", chapitreService.getAllChapitres());
+        return "AfficheCoure";
+    }
     @GetMapping("/Chapitre/New")
     public String createChapitreForm(Model model) {
 

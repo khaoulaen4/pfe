@@ -18,7 +18,6 @@ public class Chapitre implements java.io.Serializable  {
 	private String titre;
 	private Date dateAjoute;
 	private String Contenue;
-
 	private String Image;
 
 	public Chapitre() {
