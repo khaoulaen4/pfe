@@ -35,7 +35,6 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a th:href="@{/index}"  class="nav-link">Home</a></li>
                 <li class="nav-item"><a th:href="@{/about}"  class="nav-link">About</a></li>
-                <li class="nav-item"><a th:href="@{/course}" class="nav-link">Course</a></li>
                 <li class="nav-item"><a th:href="@{/contact}"  class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -150,7 +149,7 @@
                             </button>
                         </div>
                     </form>
-                    <p class="text-center">Already have an account? <a href="/" th:href="@{/index}"> Sign In</a></p>
+                    <p class="text-center">Already have an account? <a th:href="@{/index}"> Sign In</a></p>
                 </div>
             </div>
         </div>
@@ -175,7 +174,6 @@
                     <ul class="list-unstyled">
                         <li><a  th:href="@{/index}" class="py-2 d-block"> > Home </a></li>
                         <li><a  th:href="@{/about}" class="py-2 d-block"> > About</a></li>
-                        <li><a  th:href="@{/course}" class="py-2 d-block"> > Course</a></li>
                         <li><a  th:href="@{/contact}" class="py-2 d-block"> > Contact</a></li>
                     </ul>
                 </div>

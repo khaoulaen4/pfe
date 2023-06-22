@@ -36,7 +36,9 @@
        <ul class="navbar-nav ml-auto">
          <li class="nav-item active"><a th:href="@{/index}"class="nav-link">Home</a></li>
          <li class="nav-item"><a  th:href="@{/about}" class="nav-link">About</a></li>
+<!--
          <li class="nav-item"><a  th:href="@{/course}"class="nav-link">Course</a></li>
+-->
          <li class="nav-item"><a  th:href="@{/contact}" class="nav-link">Contact</a></li>
      </ul>
  </div>
@@ -65,7 +67,7 @@
          <div class="col-md-5 order-md-last">
           <div class="login-wrap p-4 p-md-5">
               <h3 class="mb-4">Sign in</h3>
-              <form action="#" class="signup-form">
+              <form action="/course" class="signup-form">
 
                 <div class="form-group">
                     <label class="label" >Email Address</label>
@@ -97,55 +99,40 @@
     </div>
     <div class="row justify-content-center">
      <div class="col-md-3 col-lg-2">
-        <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-1.jpg);">
+        <a th:href="@{/index}" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-1.jpg);">
            <div class="text w-100 text-center">
-              <h3>IT &amp; Software</h3>
-              <span>100 course</span>
+              <h3> science </h3>
+              <span> course</span>
           </div>
       </a>
   </div>
-<!--  <div class="col-md-3 col-lg-2">
-    <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-9.jpg);">
+
+<div class="col-md-3 col-lg-2">
+    <a th:href="@{/index}" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-3.jpg);">
        <div class="text w-100 text-center">
-          <h3>Music</h3>
-          <span>100 course</span>
+          <h3>Physics</h3>
+          <span> course</span>
       </div>
   </a>
 </div>
 <div class="col-md-3 col-lg-2">
-    <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-3.jpg);">
+    <a th:href="@{/index}" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-5.jpg);">
        <div class="text w-100 text-center">
-          <h3>Photography</h3>
-          <span>100 course</span>
-      </div>
-  </a>
-</div>-->
-<div class="col-md-3 col-lg-2">
-    <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-5.jpg);">
-       <div class="text w-100 text-center">
-          <h3>Marketing</h3>
-          <span>100 course</span>
+          <h3>law</h3>
+          <span>course</span>
       </div>
   </a>
 </div>
-<!--<div class="col-md-3 col-lg-2">
-    <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(images/work-8.jpg);">
-       <div class="text w-100 text-center">
-          <h3>Health</h3>
-          <span>100 course</span>
-      </div>
-  </a>
-</div>-->
 <div class="col-md-3 col-lg-2">
-    <a href="#" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-6.jpg);">
+    <a th:href="@{/index}" class="course-category img d-flex align-items-center justify-content-center" style="background-image: url(/images/work-6.jpg);">
        <span class="text w-100 text-center">
-          <h3>Audio Video</h3>
-          <span>100 course</span>
+          <h3>Software</h3>
+          <span>course</span>
       </span>
   </a>
 </div>
 <div class="col-md-12 text-center mt-5">
-    <a href="#" class="btn btn-secondary">See All Courses</a>
+    <a th:href="@{/index}" class="btn btn-secondary">See All Courses</a>
 </div>
 </div>
 </div>
@@ -391,7 +378,6 @@
        <ul class="list-unstyled">
            <li><a  th:href="@{/index}" class="py-2 d-block"> > Home </a></li>
            <li><a  th:href="@{/about}" class="py-2 d-block"> > About</a></li>
-           <li><a  th:href="@{/course}" class="py-2 d-block"> > Course</a></li>
            <li><a  th:href="@{/contact}" class="py-2 d-block"> > Contact</a></li>
        </ul>
 </div>

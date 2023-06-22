@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>Create Departement</title>
+    <title>Create Etudiante</title>
 
     <meta name="description" content=""/>
 
@@ -66,21 +66,88 @@
 
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-                            <h1 class="text-center"> Create New Departement </h1>
+                            <h1 class="text-center"> Create New Etudiante </h1>
                             <div class="card-body">
-                                <form th:action="@{/Departement/Save}" th:object="${departement}" method="POST">
+                                <form th:action="@{/Etudiantee/Save}" th:object="${etudiante}" method="POST">
 
                                     <div class="form-group">
-                                        <label> Departement Name </label>
+                                        <label>  First Name </label>
                                         <input
                                                 type="text"
-                                                name="NomDepartement"
-                                                th:field="*{nomDep}"
+                                                name="Name Etudiante"
+                                                th:field="*{prenomEtu}"
                                                 class="form-control"
-                                                placeholder="Enter Departement Name"
+                                                placeholder="Enter Etudiante First Name"
                                         />
                                     </div>
-
+                                    <div class="form-group">
+                                        <label>  Last Name </label>
+                                        <input
+                                                type="text"
+                                                name="Nome Etudiante"
+                                                th:field="*{nomEtu}"
+                                                class="form-control"
+                                                placeholder="Enter Etudiante Last Name"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>  Mail </label>
+                                        <input
+                                                type="email"
+                                                name="email Etudiante"
+                                                th:field="*{email}"
+                                                class="form-control"
+                                                placeholder="Enter Etudiante Mail"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>  UserName </label>
+                                        <input
+                                                type="text"
+                                                name="user Etudiante"
+                                                th:field="*{userName}"
+                                                class="form-control"
+                                                placeholder="Enter Etudiante UserName"
+                                        />
+                                    </div><!--
+                                    <div class="form-group">
+                                        <label> Password </label>
+                                        <input
+                                                type="password"
+                                                name="password Enseignante"
+                                                th:field="*{password}"
+                                                class="form-control"
+                                                placeholder="Enter Enseignante Password"
+                                        />
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label> Date of Birth  </label>
+                                        <input
+                                                type="date"
+                                                name="Date of Birth Etudiante"
+                                                th:field="*{dateNaissanceEtd}"
+                                                class="form-control"
+                                                placeholder="Enter Etudiante Date of Birth "
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label> Phone Number </label>
+                                        <input
+                                                type="text"
+                                                name="numberphone"
+                                                th:field="*{numTele}"
+                                                class="form-control"
+                                                placeholder="Enter Etudiante Phone Number"
+                                        />
+                                    </div>
+                                    <!--  <div class ="form-group">
+                                          <label> Module </label>
+                                          <select class="custom-select form-control" th:field="*{moduls}">
+                                              <option value="">Selectionnez un Module</option>
+                                              <option th:each="moduls : ${moduls}" th:value="${moduls.IdModul}" th:text="${moduls.nomModul}"></option>
+                                          </select>
+                                      </div>-->
+                                    <br>
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-secondary">
                                             Submit
@@ -105,6 +172,7 @@
     <div class="layout-overlay layout-menu-toggle"></div>
 </div>
 <!-- / Layout wrapper -->
+
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
