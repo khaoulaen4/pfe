@@ -144,11 +144,11 @@
                 <div class="row" >
                     <div th:each=" Chapitre: ${Chapitre}" class="col-md-6 d-flex align-items-stretch ftco-animate">
                         <div class="project-wrap">
-                            <a th:href="@{/AfficheCoure}" class="img"  th:style="'background-image: url(PDF/'+${Chapitre.Image}+');'">
+                            <a th:href="@{/AfficheCoure/{id}(id=${Chapitre.idChpt})}" class="img"  th:style="'background-image: url(PDF/'+${Chapitre.Image}+');'">
                                 <span th:text="${Chapitre.modul.nomModul}" class="price"></span>
                             </a>
                             <div class="text p-4">
-                                <h3><a  th:href="@{/AfficheCoure}" th:text="${Chapitre.titre}"></a></h3>
+                                <h3><a  th:href="@{/AfficheCoure/{id}(id=${Chapitre.idChpt})}" th:text="${Chapitre.titre}"></a></h3>
                                 <!-- <p class="advisor">Advisor <span>Tony Garret</span></p>
 
                                  <ul class="d-flex justify-content-between">

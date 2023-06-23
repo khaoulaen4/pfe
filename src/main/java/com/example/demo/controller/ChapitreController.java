@@ -49,7 +49,8 @@ public class ChapitreController {
     public String AfficheCoures(@PathVariable int id,Model model) {
         Chapitre chapitre = chapitreService.getChapitreById(id);
         model.addAttribute("Chapitre", chapitre);
-        return "AfficheCoure";
+
+      return "AfficheCoure";
     }
     @GetMapping("/Chapitre/New")
     public String createChapitreForm(Model model) {

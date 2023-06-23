@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Chapitre;
 import com.example.demo.entity.Exercice;
 import com.example.demo.entity.Modul;
 import com.example.demo.service.ExerciceService;
@@ -36,6 +37,13 @@ public class ExerciceController {
 
         model.addAttribute("Exercice", exerciceService.getAllExercices());
         return "Exercice/Exercice";
+    }
+    @GetMapping("/AfficheExercice/{id}")
+    public String AfficheCoures(@PathVariable int id,Model model) {
+        Exercice Exercice = exerciceService.getExerciceById(id);
+        model.addAttribute("Exercice", Exercice);
+
+        return "AfficheExercice";
     }
     @GetMapping("/Exercice_affiche")
     public String afficheExercice(Model model) {

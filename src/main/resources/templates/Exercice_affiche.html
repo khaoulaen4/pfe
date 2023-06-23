@@ -143,11 +143,11 @@
                 <div class="row" >
                     <div th:each=" Exercice: ${Exercice}" class="col-md-6 d-flex align-items-stretch ftco-animate">
                         <div class="project-wrap">
-                            <a href="#" class="img"  th:style="'background-image: url(PDF/'+${Exercice.Image}+');'">
+                            <a th:href="@{/AfficheExercice/{id}(id=${Exercice.idEx})}" class="img"  th:style="'background-image: url(PDF/'+${Exercice.Image}+');'">
                                 <span th:text="${Exercice.modul.nomModul}" class="price"></span>
                             </a>
                             <div class="text p-4">
-                                <h3><a href="" th:text="${Exercice.nomEx}"></a></h3>
+                                <h3><a th:href="@{/AfficheExercice/{id}(id=${Exercice.idEx})}" th:text="${Exercice.nomEx}"></a></h3>
                                 <!-- <p class="advisor">Advisor <span>Tony Garret</span></p>
 
                                  <ul class="d-flex justify-content-between">
